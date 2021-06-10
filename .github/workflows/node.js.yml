@@ -73,6 +73,6 @@ jobs:
    - name: npm install, and test 
      run: |
       npm install
-      npm test -- -u
+      npm test --fix -- -u 
      env:
       CI: true

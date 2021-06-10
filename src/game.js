@@ -8,7 +8,7 @@ export default class Game {
       [null, null, null],
     ];
     this.player = Math.random() < 0.5 ? this.p1 : this.p2;
-    this.sym = "X";
+    this.sym = 'X';
   }
 
   turn(row, col) {
@@ -18,7 +18,7 @@ export default class Game {
 
   nextPlayer() {
     this.player = this.player === this.p1 ? this.p2 : this.p1;
-    this.sym = this.sym === "X" ? "O" : "X";
+    this.sym = this.sym === 'X' ? 'O' : 'X';
   }
 
   hasWinner() {

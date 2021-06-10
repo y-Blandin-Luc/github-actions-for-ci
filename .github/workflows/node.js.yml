@@ -45,6 +45,7 @@ jobs:
       - name: Format
         run: |
           npm ci
+          npm install --save-dev prettier
           npm run format
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4.1.2
@@ -53,7 +54,7 @@ jobs:
           branch: ${{ github.head_ref }}
 
   test:
-   needs: build
+   needs: format
    runs-on: ubuntu-latest
    strategy:
      matrix:

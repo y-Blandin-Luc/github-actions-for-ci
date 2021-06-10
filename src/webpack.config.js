@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   entry: {
@@ -8,6 +8,7 @@ module.exports = {
     ],
   },
   output: {
-      filename: "main.js",
-    path: path.resolve(__dirname, "../public") }
-    };
+    filename: "main.js",
+    path: path.resolve(__dirname, "../public"),
+  },
+};

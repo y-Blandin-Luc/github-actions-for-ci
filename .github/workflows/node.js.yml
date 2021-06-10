@@ -10,29 +10,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: npm install and build webpack
-      run: |
-          npm install
-          npm run build
-    - uses: actions/upload-artifact@main
-      with:
-          name: webpack artifacts
-          path: public/
 
   format:
-    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -52,9 +31,31 @@ jobs:
         with:
           commit_message: Apply formatting changes
           branch: ${{ github.head_ref }}
+  build:
+    needs: format
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: npm install and build webpack
+      run: |
+          npm install
+          npm run build
+    - uses: actions/upload-artifact@main
+      with:
+          name: webpack artifacts
+          path: public/
+
+
       
   test:
-   needs: format
+   needs: build
    runs-on: ubuntu-latest
    strategy:
      matrix:

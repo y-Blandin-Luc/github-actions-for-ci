@@ -31,6 +31,27 @@ jobs:
           name: webpack artifacts
           path: public/
 
+  format:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       os: [ubuntu-latest]
+       node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Format
+        run: |
+          npm ci
+          npm run format
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4.1.2
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}
+
   test:
    needs: build
    runs-on: ubuntu-latest

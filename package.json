@@ -11,7 +11,7 @@
     "build": "npx webpack --config ./src/webpack.config.js --mode production",
     "dev": "npx webpack --config ./src/webpack.config.js --mode development --watch",
     "test": "npx standard --fix && npx jest",
-    "format": "prettier --write .".
+    "format": "prettier --write .",
     "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "author": "githubtraining",

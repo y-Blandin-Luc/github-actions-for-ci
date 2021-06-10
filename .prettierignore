@@ -1,2 +1,5 @@
 # Ignore all HTML files:
 *.html
+
+# Ignore all YML files: (because refusing to allow a GitHub App to create or update workflow `.github/workflows/approval-workflow.yml` without `workflows` permission)
+*.yml

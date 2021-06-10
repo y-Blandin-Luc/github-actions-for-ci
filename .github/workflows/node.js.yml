@@ -21,6 +21,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+      - name: Lint
+        run: |
+          npm ci
+          npm install --save-dev eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks
+          npn run lint
       - name: Format
         run: |
           npm ci

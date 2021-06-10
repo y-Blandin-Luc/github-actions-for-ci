@@ -52,7 +52,7 @@ jobs:
         with:
           commit_message: Apply formatting changes
           branch: ${{ github.head_ref }}
-          commit_options: '--no-verify --signoff'
+          commit_options: '--no-verify'
       
   test:
    needs: format

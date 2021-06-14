@@ -38,5 +38,7 @@ Prettierの続きです。
 6. GitHub Actionsを実行する時に、ログにEslintの結果が表示される。問題なし場合、「Lint complete.」のみが表示される。
 
 [Eslint](https://eslint.org/docs/user-guide/formatters/)
+
 [Eslint & Prettierの設定](https://github.com/prettier/eslint-config-prettier)
+
 [PrettierとEslintの統合](https://prettier.io/docs/en/integrating-with-linters.html)
